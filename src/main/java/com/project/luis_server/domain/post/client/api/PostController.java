@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,7 +40,7 @@ public class PostController {
 
     @GetMapping("")
     @Operation(summary = "게시글 목록", description = "게시글 목록을 표시합니다.")
-    public ResponseEntity<List<Post>> postList(PageRequest pageRequest) {
+    public ResponseEntity<List<Post>> postList(@ModelAttribute PageRequest pageRequest) {
         return ResponseEntity.ok().body(postQueryService.postList(pageRequest));
     }
 
