@@ -3,7 +3,7 @@ package com.project.luis_server.domain.post.application.service;
 import com.project.luis_server.domain.post.client.dto.Post;
 import com.project.luis_server.domain.post.client.dto.request.PostRegisterRequest;
 import com.project.luis_server.domain.post.domain.mapper.PostMapper;
-import com.project.luis_server.domain.post.domain.repository.PostRepository;
+import com.project.luis_server.domain.post.domain.repository.jpa.PostRepository;
 import com.project.luis_server.domain.post.exception.PostNotFoundException;
 import com.project.luis_server.domain.user.application.util.UserUtil;
 import lombok.RequiredArgsConstructor;

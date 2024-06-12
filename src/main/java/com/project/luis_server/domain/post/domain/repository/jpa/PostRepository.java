@@ -1,4 +1,4 @@
-package com.project.luis_server.domain.post.domain.repository;
+package com.project.luis_server.domain.post.domain.repository.jpa;
 
 import com.project.luis_server.domain.post.domain.PostEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
