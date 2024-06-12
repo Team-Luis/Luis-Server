@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/luis?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: luis
+    password: luis1234!
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+application:
+  jwt:
+    secretKey: 4e63451804216dfd9fbea3ad0324d038d5144b411a3a2afc68fb1d40ba31dd7f
+    expiration: 172800000    # 48시간
+    refreshExpiration: 604800000   # 7일
+
+springdoc:
+  api-docs:
+    enabled: true
+    version: openapi_3_0 #사용하는 버전을 명시
+    path: /v3/api-docs #api 문서 확인 경로, localhost:8080/v3/api-docs 로 접근
+  default-consumes-media-type: application/json #기본으로 설정되는 미디어타입 지정
+  auto-tag-classes: true
