@@ -4,4 +4,6 @@ import com.project.luis_server.domain.post.client.dto.request.PostRegisterReques
 
 public interface PostService {
     void registerPost(PostRegisterRequest request);
+
+    void deletePost(Long postId);
 }
