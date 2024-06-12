@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void deleteUser() {
-        userRepository.deleteById(userUtil.findUser().getId());
+        userRepository.deleteById(userUtil.findUser().getIdx());
     }
 
 }

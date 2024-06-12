@@ -6,8 +6,6 @@ import com.project.luis_server.domain.user.domain.UserEntity;
 import com.project.luis_server.domain.user.domain.enums.UserRole;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 @Component
 public class UserMapper {
 
