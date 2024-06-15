@@ -24,6 +24,7 @@ public class UserMapper {
                 .userId(signUpRequest.getUserId())
                 .email(signUpRequest.getEmail())
                 .password(password)
+                .userRole(UserRole.USER)
                 .build();
     }
 

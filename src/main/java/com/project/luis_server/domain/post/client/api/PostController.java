@@ -3,6 +3,7 @@ package com.project.luis_server.domain.post.client.api;
 import com.project.luis_server.domain.post.application.query.PostQueryService;
 import com.project.luis_server.domain.post.application.service.PostService;
 import com.project.luis_server.domain.post.client.dto.Post;
+import com.project.luis_server.domain.post.client.dto.request.PostEditRequest;
 import com.project.luis_server.domain.post.client.dto.request.PostRegisterRequest;
 import com.project.luis_server.global.common.dto.request.PageRequest;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,12 @@ public class PostController {
     @Operation(summary = "게시글 조회", description = "idx를 기준으로 특정 게시글을 조회합니다.")
     public Post getPost(@RequestParam Long postId) {
         return postService.getPost(postId);
+    }
+
+    @PatchMapping("")
+    @Operation(summary = "게시글 수정", description = "게시글의 제목과 내용을 수정합니다.")
+    public void editPost(@RequestBody PostEditRequest request) {
+        postService.editPost(request);
     }
 
     @DeleteMapping("")

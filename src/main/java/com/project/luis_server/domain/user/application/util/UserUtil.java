@@ -35,8 +35,7 @@ public class UserUtil {
 
     public void saveUser(SignUpRequest request) {
         userRepository.save(userMapper.toCreate(
-                        request, encoder.encode(request.getPassword())
-                )
+                request, encoder.encode(request.getPassword()))
         );
     }
 }

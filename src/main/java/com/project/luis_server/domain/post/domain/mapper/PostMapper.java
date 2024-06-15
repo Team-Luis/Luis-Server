@@ -25,4 +25,14 @@ public class PostMapper {
                 .build();
     }
 
+    public PostEntity toEdit(Post post) {
+        return PostEntity.builder()
+                .idx(post.getIdx()) // ensure idx is set
+                .title(post.getTitle())
+                .content(post.getContent())
+                .author(post.getAuthor())
+                .createdDateTime(post.getCreatedDateTime())
+                .build();
+    }
+
 }
