@@ -3,6 +3,7 @@ package com.project.luis_server.domain.post.client.api;
 import com.project.luis_server.domain.post.application.query.PostQueryService;
 import com.project.luis_server.domain.post.application.service.PostService;
 import com.project.luis_server.domain.post.client.dto.Post;
+import com.project.luis_server.domain.post.client.dto.request.AddLikesRequest;
 import com.project.luis_server.domain.post.client.dto.request.PostEditRequest;
 import com.project.luis_server.domain.post.client.dto.request.PostRegisterRequest;
 import com.project.luis_server.global.common.dto.request.PageRequest;
@@ -56,6 +57,12 @@ public class PostController {
     @Operation(summary = "게시글 수정", description = "게시글의 제목과 내용을 수정합니다.")
     public void editPost(@RequestBody PostEditRequest request) {
         postService.editPost(request);
+    }
+
+    @PatchMapping("/likes")
+    @Operation(summary = "좋아요", description = "게시글에 좋아요를 추가합니다.")
+    public void addLikes(@RequestBody AddLikesRequest request){
+        postService.addLikes(request);
     }
 
     @DeleteMapping("")
