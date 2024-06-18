@@ -41,16 +41,16 @@ public class PostController {
         postService.registerPost(request);
     }
 
+    @GetMapping("")
+    @Operation(summary = "게시글 조회", description = "idx를 기준으로 특정 게시글을 조회합니다.")
+    public Post getPost(@RequestParam Long postId) {
+        return postService.getPost(postId);
+    }
+
     @GetMapping("/list")
     @Operation(summary = "게시글 목록", description = "게시글 목록을 표시합니다.")
     public ResponseEntity<List<Post>> postList(@ModelAttribute PageRequest pageRequest) {
         return ResponseEntity.ok().body(postQueryService.postList(pageRequest));
-    }
-
-    @GetMapping("/get")
-    @Operation(summary = "게시글 조회", description = "idx를 기준으로 특정 게시글을 조회합니다.")
-    public Post getPost(@RequestParam Long postId) {
-        return postService.getPost(postId);
     }
 
     @PatchMapping("")
