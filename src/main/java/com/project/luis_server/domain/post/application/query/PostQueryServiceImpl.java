@@ -1,6 +1,7 @@
 package com.project.luis_server.domain.post.application.query;
 
 import com.project.luis_server.domain.post.client.dto.Post;
+import com.project.luis_server.domain.post.client.dto.request.PostSearchRequest;
 import com.project.luis_server.domain.post.domain.repository.query.PostQueryRepository;
 import com.project.luis_server.global.common.dto.request.PageRequest;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,11 @@ public class PostQueryServiceImpl implements PostQueryService {
     @Override
     public List<Post> postList(PageRequest request) {
         return postQueryRepository.postList(request);
+    }
+
+    @Override
+    public List<Post> postSearch(PostSearchRequest request) {
+        return postQueryRepository.postSearch(request);
     }
 
 }
