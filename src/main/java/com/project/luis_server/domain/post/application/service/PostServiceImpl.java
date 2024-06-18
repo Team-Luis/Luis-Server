@@ -1,6 +1,7 @@
 package com.project.luis_server.domain.post.application.service;
 
 import com.project.luis_server.domain.post.client.dto.Post;
+import com.project.luis_server.domain.post.client.dto.request.AddLikesRequest;
 import com.project.luis_server.domain.post.client.dto.request.PostEditRequest;
 import com.project.luis_server.domain.post.client.dto.request.PostRegisterRequest;
 import com.project.luis_server.domain.post.domain.mapper.PostMapper;
@@ -53,6 +54,16 @@ public class PostServiceImpl implements PostService {
             throw ForbiddenException.EXCEPTION;
         post.setTitle(request.getTitle());
         post.setContent(request.getContent());
+        postRepository.save(postMapper.toEdit(post));
+    }
+
+    @Override
+    public void addLikes(AddLikesRequest request){
+        Post post = postRepository
+                .findByIdx(request.getPostId())
+                .map(postMapper::toPost)
+                .orElseThrow(()-> PostNotFoundException.EXCEPTION);
+        post.setLikes(post.getLikes() + 1);
         postRepository.save(postMapper.toEdit(post));
     }
 
