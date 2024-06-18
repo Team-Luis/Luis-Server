@@ -6,6 +6,7 @@ import com.project.luis_server.domain.post.client.dto.Post;
 import com.project.luis_server.domain.post.client.dto.request.AddLikesRequest;
 import com.project.luis_server.domain.post.client.dto.request.PostEditRequest;
 import com.project.luis_server.domain.post.client.dto.request.PostRegisterRequest;
+import com.project.luis_server.domain.post.client.dto.request.PostSearchRequest;
 import com.project.luis_server.global.common.dto.request.PageRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -51,6 +52,12 @@ public class PostController {
     @Operation(summary = "게시글 목록", description = "게시글 목록을 표시합니다.")
     public ResponseEntity<List<Post>> postList(@ModelAttribute PageRequest pageRequest) {
         return ResponseEntity.ok().body(postQueryService.postList(pageRequest));
+    }
+
+    @GetMapping("/search")
+    @Operation(summary = "게시글 검색", description = "제목을 기준으로 게시글을 검색합니다.")
+    public ResponseEntity<List<Post>> postSearch(@ModelAttribute PostSearchRequest request) {
+        return ResponseEntity.ok().body(postQueryService.postSearch(request));
     }
 
     @PatchMapping("")
