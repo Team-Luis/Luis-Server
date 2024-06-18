@@ -1,8 +1,11 @@
 package com.project.luis_server.domain.post.domain;
 
+import com.project.luis_server.domain.post.domain.enums.Category;
 import com.project.luis_server.global.common.entity.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,5 +37,9 @@ public class PostEntity extends BaseTimeEntity {
 
     @Column(nullable = false)
     private int likes;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
 }
