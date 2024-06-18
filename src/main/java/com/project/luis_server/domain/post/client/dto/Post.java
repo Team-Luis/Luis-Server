@@ -7,17 +7,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Post extends BaseTimeEntity {
+public class Post{
 
     private Long idx;
     private String title;
     private String content;
     private String author;
-
+    private int likes;
+    protected LocalDateTime createdDateTime;
+    protected LocalDateTime modifiedDateTime;
 
 }

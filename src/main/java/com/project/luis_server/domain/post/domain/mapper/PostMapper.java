@@ -22,6 +22,8 @@ public class PostMapper {
                 .title(postEntity.getTitle())
                 .content(postEntity.getContent())
                 .author(postEntity.getAuthor())
+                .createdDateTime(postEntity.getCreatedDateTime())
+                .modifiedDateTime(postEntity.getModifiedDateTime())
                 .build();
     }
 
