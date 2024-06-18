@@ -14,6 +14,7 @@ public class PostMapper {
                 .content(request.getContent())
                 .author(userId)
                 .likes(0)
+                .category(request.getCategory())
                 .build();
     }
 
@@ -24,6 +25,7 @@ public class PostMapper {
                 .content(postEntity.getContent())
                 .author(postEntity.getAuthor())
                 .likes(postEntity.getLikes())
+                .category(postEntity.getCategory())
                 .createdDateTime(postEntity.getCreatedDateTime())
                 .modifiedDateTime(postEntity.getModifiedDateTime())
                 .build();
