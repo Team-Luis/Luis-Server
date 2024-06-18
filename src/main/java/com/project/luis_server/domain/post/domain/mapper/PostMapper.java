@@ -37,6 +37,8 @@ public class PostMapper {
                 .title(post.getTitle())
                 .content(post.getContent())
                 .author(post.getAuthor())
+                .likes(post.getLikes())
+                .category(post.getCategory())
                 .createdDateTime(post.getCreatedDateTime())
                 .build();
     }
