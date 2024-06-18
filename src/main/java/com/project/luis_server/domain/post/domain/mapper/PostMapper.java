@@ -13,6 +13,7 @@ public class PostMapper {
                 .title(request.getTitle())
                 .content(request.getContent())
                 .author(userId)
+                .likes(0)
                 .build();
     }
 
@@ -22,6 +23,7 @@ public class PostMapper {
                 .title(postEntity.getTitle())
                 .content(postEntity.getContent())
                 .author(postEntity.getAuthor())
+                .likes(postEntity.getLikes())
                 .createdDateTime(postEntity.getCreatedDateTime())
                 .modifiedDateTime(postEntity.getModifiedDateTime())
                 .build();
