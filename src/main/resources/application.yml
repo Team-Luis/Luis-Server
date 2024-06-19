@@ -2,11 +2,13 @@ server:
   port: 8080
 
 spring:
+  profiles:
+    active: prod
   datasource:
-    url: jdbc:mysql://localhost:3306/luis?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: ${secrets.RDS_PATH}
+    username: ${secrets.DB_USERNAME}
+    password: ${secrets.DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: luis
-    password: luis1234!
 
   jpa:
     database: mysql
@@ -21,7 +23,7 @@ spring:
 
 application:
   jwt:
-    secretKey: 4e63451804216dfd9fbea3ad0324d038d5144b411a3a2afc68fb1d40ba31dd7f
+    secretKey: ${secrets.JWT_SECRET_KEY}
     expiration: 172800000    # 48시간
     refreshExpiration: 604800000   # 7일
 
