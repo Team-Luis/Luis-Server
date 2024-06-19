@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @Getter
 @SuperBuilder
-@Table(name = "tb_user")
+@Table(name = "tb_comment")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CommentEntity {
 
