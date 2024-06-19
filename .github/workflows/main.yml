@@ -47,7 +47,8 @@ jobs:
       with:
         host: ${{ secrets.HOST_PROD }} # EC2 퍼블릭 IPv4 DNS
         username: ubuntu
-        key: ${{ secrets.PRIVATE_KEY }} # EC2 private key
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.PORT }} # EC2 private key
         envs: GITHUB_SHA
         script: |
           docker stop luis-server
