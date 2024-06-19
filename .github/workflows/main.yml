@@ -38,8 +38,8 @@ jobs:
     - name: Docker build & push to prod
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/luis-server:1.0.0 .
-        docker push ${{ secrets.DOCKER_USERNAME }}/luis-server:1.0.0
+        docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1 .
+        docker push ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
 
     - name: Deploy to prod
       uses: appleboy/ssh-action@master
@@ -53,6 +53,6 @@ jobs:
         script: |
           docker stop luis-server
           docker rm luis-server
-          docker rmi ${{ secrets.DOCKER_USERNAME }}/luis-server:1.0.0
-          docker pull ${{ secrets.DOCKER_USERNAME }}/luis-server:1.0.0
-          docker run -d -p 8080:8080 --name qvick ${{ secrets.DOCKER_USERNAME }}/luis-server:1.0.0
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
+          docker pull ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
+          docker run -d -p 8080:8080 --name qvick ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
