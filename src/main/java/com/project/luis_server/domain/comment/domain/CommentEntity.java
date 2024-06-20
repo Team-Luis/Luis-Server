@@ -1,5 +1,6 @@
 package com.project.luis_server.domain.comment.domain;
 
+import com.project.luis_server.global.common.entity.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Table(name = "tb_comment")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class CommentEntity {
+public class CommentEntity extends BaseTimeEntity {
 
     @Id
     private Long postId;

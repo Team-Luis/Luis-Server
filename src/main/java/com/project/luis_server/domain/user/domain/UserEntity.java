@@ -1,6 +1,7 @@
 package com.project.luis_server.domain.user.domain;
 
 import com.project.luis_server.domain.user.domain.enums.UserRole;
+import com.project.luis_server.global.common.entity.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Table(name = "tb_user")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserEntity {
+public class UserEntity extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
