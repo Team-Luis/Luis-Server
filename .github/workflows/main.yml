@@ -55,4 +55,4 @@ jobs:
           docker rm luis-server
           docker rmi ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
           docker pull ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
-          docker run -d -p 8080:8080 --name qvick ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
+          docker run -d -p 8080:8080 --name luis-server ${{ secrets.DOCKER_USERNAME }}/luis-server:0.0.1
