@@ -4,9 +4,10 @@ import com.project.luis_server.domain.auth.client.dto.request.SignUpRequest;
 import com.project.luis_server.domain.user.client.dto.User;
 import com.project.luis_server.domain.user.domain.UserEntity;
 import com.project.luis_server.domain.user.domain.enums.UserRole;
+import com.project.luis_server.global.annotation.Mapper;
 import org.springframework.stereotype.Component;
 
-@Component
+@Mapper
 public class UserMapper {
 
     public User toUser(UserEntity entity){
