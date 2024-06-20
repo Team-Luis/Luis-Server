@@ -3,9 +3,10 @@ package com.project.luis_server.domain.post.domain.mapper;
 import com.project.luis_server.domain.post.client.dto.Post;
 import com.project.luis_server.domain.post.client.dto.request.PostRegisterRequest;
 import com.project.luis_server.domain.post.domain.PostEntity;
+import com.project.luis_server.global.annotation.Mapper;
 import org.springframework.stereotype.Component;
 
-@Component
+@Mapper
 public class PostMapper {
 
     public PostEntity toCreate(PostRegisterRequest request, String userId) {
