@@ -22,8 +22,6 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final JwtExceptionFilter jwtExceptionFilter;
 
-    private static final String USER = "ROLE_USER";
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception {
         http
@@ -34,7 +32,6 @@ public class SecurityConfig {
                         authorize -> authorize
                                 .requestMatchers("/swagger-ui/**", "/v3/**").permitAll()
                                 .requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/post/**").hasAuthority(USER)
                                 .anyRequest().authenticated()
                 )
                 .addFilterAfter(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
