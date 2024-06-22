@@ -50,7 +50,10 @@ public class PostQueryRepositoryImpl implements PostQueryRepository {
                 postEntity.title,
                 postEntity.content,
                 postEntity.author,
-                postEntity.likes
+                postEntity.likes,
+                postEntity.category,
+                postEntity.createdDateTime,
+                postEntity.modifiedDateTime
         );
     }
 
