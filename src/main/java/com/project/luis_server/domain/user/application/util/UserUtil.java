@@ -18,13 +18,6 @@ public class UserUtil {
     private final UserRepository userRepository;
     private final UserSecurity userSecurity;
     private final UserMapper userMapper;
-    private final PasswordEncoder encoder;
-
-    public void userExistCheck(String email) {
-        if (userRepository.findByEmail(email).isPresent()) {
-            throw UserExistException.EXCEPTION;
-        }
-    }
 
     public User findUser() {
         return userRepository
@@ -33,9 +26,4 @@ public class UserUtil {
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 
-    public void saveUser(SignUpRequest request) {
-        userRepository.save(userMapper.toCreate(
-                request, encoder.encode(request.getPassword()))
-        );
-    }
 }
